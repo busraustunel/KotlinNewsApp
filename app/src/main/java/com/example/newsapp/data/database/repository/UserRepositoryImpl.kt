@@ -9,4 +9,8 @@ class UserRepositoryImpl @Inject constructor(private val userDao:UserDao):UserRe
     override suspend fun insert(user:User):Long {
         return userDao.insert(user)
     }
+
+    override suspend fun getUser(email: String, password: String): User? {
+        return userDao.getUser(email,password)
+    }
 }
