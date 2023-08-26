@@ -15,6 +15,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding = FragmentLoginBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
 
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+
         binding.btnGoSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }

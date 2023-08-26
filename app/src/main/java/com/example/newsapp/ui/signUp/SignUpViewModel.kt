@@ -20,28 +20,25 @@ class SignUpViewModel @Inject constructor(private val userRepository: UserReposi
         MutableStateFlow(UserRegisterState.Idle)
     var registerState: StateFlow<UserRegisterState> = _registerState
 
-    fun insert(
-        name: String,
-        surname: String,
-        email: String,
-        password: String,
-        passwordAgain: String
-    ) {
-        viewModelScope.launch(Dispatchers.IO) {
-            var result = -1
-            val user = User(name = name, surname = surname, email = email, password = password)
-            kotlin.runCatching {
-                _registerState.emit(UserRegisterState.Checking)
-                userRepository.insert(user)
-            }.onSuccess {
-                _registerState.emit(UserRegisterState.Success)
-            }.onFailure {
-                _registerState.emit(UserRegisterState.Error())
+    fun insertUser(name: String, surname: String, email: String, password: String, passwordAgain: String) {
+        if (name.isNotEmpty() && surname.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && passwordAgain.isNotEmpty()) {
+            if (password == passwordAgain) {
+                viewModelScope.launch(Dispatchers.IO) {
+                    var result: Long = -1
+                    val user = User(name = name, surname = surname, email = email, password = password)
+                    kotlin.runCatching {
+                        _registerState.emit(UserRegisterState.Checking)
+                        result = userRepository.insert(user)
+                    }.onSuccess {
+                        _registerState.value = UserRegisterState.Success(result.toInt())
+                    }.onFailure {
+                        _registerState.value = UserRegisterState.Error(it)
+                    }
             }
-
-
+            } else {
+                _registerState.value = UserRegisterState.InputError
+            }
         }
-
     }
 
 
