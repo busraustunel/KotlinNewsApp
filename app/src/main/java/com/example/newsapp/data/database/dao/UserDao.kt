@@ -2,15 +2,13 @@ package com.example.newsapp.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.OnConflictStrategy
 import com.example.newsapp.data.database.entity.User
 
 @Dao
 interface UserDao {
 
-    @Insert
-    suspend fun insert(user: User)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(user: User): Long
 
-    @Query("SELECT * FROM User")
-    suspend fun getUser(email:String, password:String)
 }

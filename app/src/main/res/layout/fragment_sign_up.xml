@@ -75,6 +75,13 @@
             android:text="SIGN UP"
             android:padding="16dp"
             />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
     </LinearLayout>
 
 

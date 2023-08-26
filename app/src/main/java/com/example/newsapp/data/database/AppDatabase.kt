@@ -5,12 +5,9 @@ import androidx.room.RoomDatabase
 import com.example.newsapp.data.database.dao.UserDao
 import com.example.newsapp.data.database.entity.User
 
-@Database(
-    entities = [User::class],
-    version = 1
-)
-abstract class AppDatabase:RoomDatabase() {
 
-    abstract fun userDao(): UserDao
+@Database(entities = [User::class], version = 1, exportSchema = false)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun userDao():UserDao
 
 }
