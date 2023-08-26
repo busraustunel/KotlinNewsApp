@@ -14,8 +14,8 @@
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_newsDetailFragment"
-            app:destination="@id/newsDetailFragment" />
+            android:id="@+id/action_loginFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -30,4 +30,13 @@
         android:id="@+id/newsDetailFragment"
         android:name="com.example.newsapp.ui.newsDetail.NewsDetailFragment"
         android:label="NewsDetailFragment" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.newsapp.ui.categories.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_categoryFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
 </navigation>
