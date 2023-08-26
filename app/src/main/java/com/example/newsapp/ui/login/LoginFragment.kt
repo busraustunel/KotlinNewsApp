@@ -54,9 +54,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                             binding.progressBar.visibility = View.GONE
                             AlertDialog.Builder(requireContext())
                                 .setTitle("Success")
-                                .setMessage("User found")
+                                .setMessage("Giriş başarılı")
                                 .setPositiveButton("Ok") { dialog, _ ->
-                                    dialog.dismiss()
+                                    findNavController().navigate(R.id.action_loginFragment_to_newsDetailFragment)
                                 }
                                 .create()
                                 .show()
@@ -84,6 +84,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
             viewModel.login(email, password)
+
         }
 
         binding.btnGoSignUp.setOnClickListener {
