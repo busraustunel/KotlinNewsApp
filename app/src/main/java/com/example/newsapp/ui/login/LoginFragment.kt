@@ -56,7 +56,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                 .setTitle("Success")
                                 .setMessage("Giriş başarılı")
                                 .setPositiveButton("Ok") { dialog, _ ->
-                                    findNavController().navigate(R.id.action_loginFragment_to_newsDetailFragment)
+                                    findNavController().navigate(R.id.action_loginFragment_to_categoryFragment)
                                 }
                                 .create()
                                 .show()

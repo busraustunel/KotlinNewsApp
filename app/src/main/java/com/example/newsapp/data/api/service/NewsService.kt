@@ -6,6 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface NewsService {
+
     @GET("news")
     suspend fun getNewsDetail(@Query("category") category: String):Response<List<News>>
 }
