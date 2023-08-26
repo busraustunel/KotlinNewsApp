@@ -3,7 +3,7 @@ package com.example.newsapp.ui.signUp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsapp.data.database.entity.User
-import com.example.newsapp.data.database.repository.UserRepository
+import com.example.newsapp.data.repository.repo.UserRepository
 import com.example.newsapp.data.state.UserRegisterState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

@@ -1,4 +1,4 @@
-package com.example.newsapp.data.database.repository
+package com.example.newsapp.data.repository.repo
 
 import com.example.newsapp.data.database.entity.User
 

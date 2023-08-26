@@ -2,6 +2,7 @@ package com.example.newsapp.data.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.newsapp.Constants
 import com.example.newsapp.data.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -18,7 +19,7 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context):AppDatabase {
-        return Room.databaseBuilder(context, AppDatabase::class.java, "my-database").build()
+        return Room.databaseBuilder(context, AppDatabase::class.java, Constants.DATABASE_NAME).build()
     }
 
 }

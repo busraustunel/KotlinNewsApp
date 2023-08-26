@@ -2,7 +2,7 @@ package com.example.newsapp.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.data.database.repository.UserRepository
+import com.example.newsapp.data.repository.repo.UserRepository
 import com.example.newsapp.data.state.UserLoginState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
