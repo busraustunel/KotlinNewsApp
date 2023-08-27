@@ -30,12 +30,12 @@
         android:id="@+id/newsDetailFragment"
         android:name="com.example.newsapp.ui.newsDetail.NewsDetailFragment"
         android:label="NewsDetailFragment">
-        <argument
-            android:name="category"
-            app:argType="string" />
         <action
             android:id="@+id/action_newsDetailFragment_to_categoryFragment"
             app:destination="@id/categoryFragment" />
+        <argument
+            android:name="category"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
