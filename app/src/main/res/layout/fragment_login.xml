@@ -21,24 +21,26 @@
             android:id="@+id/tvWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome"
+            android:text="@string/welcome"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <EditText
+            android:autofillHints="emailAddress"
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textSize="18sp" />
 
         <EditText
+            android:autofillHints="password"
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="16dp"
             android:textSize="18sp" />
@@ -48,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="LOGIN"
+            android:text="@string/login"
 
             />
 
@@ -59,14 +61,32 @@
             android:layout_height="wrap_content"
             android:visibility="gone"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+
+        <CheckBox
+            android:id="@+id/cbRememberMe"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/remember_me"
+            />
+
         <TextView
             android:id="@+id/btnGoSignUp"
-            android:layout_width="match_parent"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:gravity="end"
             android:padding="16dp"
-            android:text="Hesabınız yok mu ? Hesap Oluşturun"
+            android:layout_weight="1"
+            android:text="@string/create_account"
             android:textStyle="bold" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
