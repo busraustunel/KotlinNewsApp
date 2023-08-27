@@ -16,11 +16,11 @@ class NewsDetailViewModel @Inject constructor(private val newsRepository: NewsRe
     private val _newsState: MutableStateFlow<NewsState> = MutableStateFlow(NewsState.Idle)
     val newsState: StateFlow<NewsState> = _newsState
 
-    fun getNews() {
+    fun getNews(category:String) {
         viewModelScope.launch {
             _newsState.emit(NewsState.Loading)
             kotlin.runCatching {
-                val news = newsRepository.getNewsDetail()
+                val news = newsRepository.getNewsDetail(category)
                 _newsState.emit(NewsState.Success(news))
             }.onFailure {
                 _newsState.emit(NewsState.Error(it))

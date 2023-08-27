@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.newsapp.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
@@ -21,7 +21,7 @@
         android:id="@+id/signUpFragment"
         android:name="com.example.newsapp.ui.signUp.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
+        tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -29,12 +29,19 @@
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.example.newsapp.ui.newsDetail.NewsDetailFragment"
-        android:label="NewsDetailFragment" />
+        android:label="NewsDetailFragment">
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.newsapp.ui.categories.CategoryFragment"
         android:label="fragment_category"
-        tools:layout="@layout/fragment_category" >
+        tools:layout="@layout/fragment_category">
         <action
             android:id="@+id/action_categoryFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment" />
