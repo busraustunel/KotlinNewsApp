@@ -37,7 +37,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
                     when(it) {
                         is CategoryState.Success -> {
                             adapter = CategoriesAdapter(requireContext(),it.categories) {
-                                val action = CategoryFragmentDirections.actionCategoryFragmentToNewsDetailFragment(it.value)
+                                val action = CategoryFragmentDirections.actionCategoryFragmentToNewsFragment(it.value)
                                 findNavController().navigate(action)
                             }
                             binding.rvCategories.adapter = adapter
