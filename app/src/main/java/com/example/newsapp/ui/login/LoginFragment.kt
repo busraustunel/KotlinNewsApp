@@ -1,5 +1,6 @@
 package com.example.newsapp.ui.login
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -9,10 +10,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.newsapp.Constants.REMEMBER_ME_KEY
+import com.example.newsapp.Constants.SHARED_PREF_NAME
 import com.example.newsapp.R
 import com.example.newsapp.data.state.UserLoginState
 import com.example.newsapp.databinding.FragmentLoginBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -20,13 +22,29 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     lateinit var binding: FragmentLoginBinding
     private val viewModel:LoginViewModel by activityViewModels()
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentLoginBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
 
+        val sharedPreferences = requireContext().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val rememberMe = sharedPreferences.getBoolean(REMEMBER_ME_KEY, false)
+
+        if (rememberMe) {
+            findNavController().navigate(R.id.action_loginFragment_to_categoryFragment)
+        }
+
+
         setupListeners()
         observeUserLoginState()
+
+
     }
+
+
+
+
+
 
     private fun observeUserLoginState() {
         lifecycleScope.launch {
@@ -56,6 +74,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                 .setTitle("Success")
                                 .setMessage("Giriş başarılı")
                                 .setPositiveButton("Ok") { dialog, _ ->
+                                    dialog.dismiss()
                                     findNavController().navigate(R.id.action_loginFragment_to_categoryFragment)
                                 }
                                 .create()
@@ -85,7 +104,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val password = binding.etPassword.text.toString()
             viewModel.login(email, password)
 
+            val sharedPreferences = requireContext().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+            if (binding.cbRememberMe.isChecked) {
+                sharedPreferences.edit().putBoolean(REMEMBER_ME_KEY, true).apply()
+            }
+
         }
+
 
         binding.btnGoSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
