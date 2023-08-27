@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.navArgs
 import com.example.newsapp.R
 import com.example.newsapp.data.state.NewsState
 import com.example.newsapp.databinding.FragmentNewsDetailBinding
@@ -21,11 +22,13 @@ class NewsDetailFragment : Fragment(R.layout.fragment_news_detail) {
     lateinit var binding: FragmentNewsDetailBinding
     private val viewModel: NewsDetailViewModel by activityViewModels()
     lateinit var adapter: NewsListAdapter
+    val args: NewsDetailFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentNewsDetailBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getNews()
+
+        viewModel.getNews(args.category)
         observeNewsState()
 
 

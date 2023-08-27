@@ -4,12 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newsapp.data.api.model.News
-import com.example.newsapp.data.api.model.Response
 import com.example.newsapp.data.database.entity.Category
 import com.example.newsapp.databinding.CategoryListItemBinding
 
-class CategoriesAdapter(val context: Context, val categories: List<Category>, val onClick:() -> Unit): RecyclerView.Adapter<CategoriesAdapter.CategoriesListViewHolder>() {
+class CategoriesAdapter(val context: Context, val categories: List<Category>, val onClick:(category:Category) -> Unit): RecyclerView.Adapter<CategoriesAdapter.CategoriesListViewHolder>() {
     class CategoriesListViewHolder(binding: CategoryListItemBinding): RecyclerView.ViewHolder(binding.root) {
 
         val tvCategoryName = binding.tvCategoryName
@@ -29,7 +27,7 @@ class CategoriesAdapter(val context: Context, val categories: List<Category>, va
 
         holder.tvCategoryName.text = categories[position].name
         holder.itemView.setOnClickListener {
-            onClick()
+            onClick(categories[position])
         }
     }
 }
