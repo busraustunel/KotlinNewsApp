@@ -3,7 +3,6 @@ package com.example.newsapp.ui.signUp
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -12,8 +11,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.newsapp.R
+import com.example.newsapp.data.state.MessageState
 import com.example.newsapp.data.state.UserRegisterState
 import com.example.newsapp.databinding.FragmentSignUpBinding
+import com.example.newsapp.showToast
 import kotlinx.coroutines.launch
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
@@ -27,7 +28,28 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         super.onViewCreated(view, savedInstanceState)
 
         observeRegisterState()
+        observeMessageState()
         setupListeners()
+    }
+
+    private fun observeMessageState() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.messageState.collect {
+                    when (it) {
+                        MessageState.Idle -> {}
+                        MessageState.UserNotFound -> {
+                            requireContext().showToast("User not found")}
+                        MessageState.Success -> {
+                            requireContext().showToast("Success")
+                        }
+                        MessageState.Error -> {
+                            requireContext().showToast("Error")
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun observeRegisterState() {
@@ -70,9 +92,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     private fun showSuccessState() {
         binding.progressBar.isVisible = false
         binding.btnSignUp.isVisible = true
-
-        //TODO: Bu mesaj neden iki kere gösteriliyor her gidip geldiğimde?
-        Toast.makeText(requireContext(), "Kayıt başarılı", Toast.LENGTH_SHORT).show()
     }
 
     private fun showInputError() {
@@ -96,6 +115,5 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     private fun showErrorState() {
         binding.progressBar.isVisible = false
         binding.btnSignUp.isVisible = true
-        Toast.makeText(requireContext(), "Bir hata oluştu", Toast.LENGTH_SHORT).show()
     }
 }
