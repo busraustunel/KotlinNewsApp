@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue">#a3f6f5</color>
+    <color name="dark_blue">#1049c9</color>
+    <color name="orange">#e37404</color>
+    <color name="crem">#fff4ca</color>
+    <color name="loginbackground">#ff137e</color>
+    <color name="errorColor">#FF1100</color>
 </resources>

@@ -1,14 +1,32 @@
 <resources>
     <string name="app_name">NewsApp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="read_more">Read More</string>
-    <string name="log_out">Çıkış Yap</string>
-    <string name="categories">Categories</string>
-    <string name="welcome">Welcome</string>
+    <string name="welcome">Hoşgeldiniz</string>
+    <string name="password">Şifre</string>
+    <string name="or">Veya</string>
+    <string name="enter_email">Kullanıcı Adını Giriniz</string>
+    <string name="enter_password">Şifrenizi Giriniz</string>
+    <string name="remember_me">Beni Hatırla</string>
+    <string name="login">Giriş Yap</string>
+    <string name="sign_up">Kayıt Ol</string>
+    <string name="account">Hesabınız yok mu?</string>
+    <string name="already_account">Hesabınız zaten var mı?</string>
+    <string name="passwords_not_equals">Parola eşleşmiyor</string>
+    <string name="email_empty">E-posta boş olamaz</string>
+    <string name="password_empty">Şifre boş olamaz</string>
+    <string name="password_short">Şifre en az 6 karakter olmalı</string>
+    <string name="invalid_email">Geçerli bir e-posta giriniz</string>
+    <!-- Register Fragment -->
+    <string name="name">Adı</string>
+    <string name="surname">Soyadı</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="login">Login</string>
-    <string name="remember_me">Remember Me</string>
-    <string name="create_account">Hesabınız Yok mu ? Hesap Oluşturun</string>
+    <string name="confirm_password">Şifreyi Doğrula</string>
+    <string name="name_empty">İsim alanı boş bırakılamaz</string>
+    <string name="surname_empty">Soyisim alanı boş bırakılamaz</string>
+    <string name="confirm_password_empty">Şifre doğrulama alanı boş bırakılamaz</string>
+    <string name="passwords_not_match">Şifreler eşleşmiyor</string>
+    <string name="categories">Categories</string>
+    <string name="read_more">Read More</string>
+    <string name="logout">ÇIKIŞ YAP</string>
+
 
 </resources>
