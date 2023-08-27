@@ -2,7 +2,6 @@ package com.example.newsapp.ui.signUp
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -60,7 +59,9 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         UserRegisterState.Idle -> {}
                         UserRegisterState.Checking -> showLoadingState()
                         is UserRegisterState.Success -> showSuccessState()
-                        UserRegisterState.InputError -> showInputError()
+                        UserRegisterState.InputError -> {
+                            TODO("Show input error")
+                        }
                         is UserRegisterState.Error -> showErrorState()
                     }
                 }
@@ -69,51 +70,34 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     }
 
     private fun setupListeners() {
-        binding.btnSignUp.setOnClickListener {
+        binding.btnSignUpRegister.setOnClickListener {
             viewModel.insertUser(
                 binding.etName.text.toString().trim(),
                 binding.etSurname.text.toString().trim(),
                 binding.etEmail.text.toString().trim(),
                 binding.etPassword.text.toString().trim(),
-                binding.etPasswordAgain.text.toString().trim()
+                binding.etConfirmPassword.text.toString().trim()
             )
         }
 
-        binding.btnGoLogin.setOnClickListener {
+        binding.textViewLogin.setOnClickListener {
             findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
     }
 
     private fun showLoadingState() {
         binding.progressBar.isVisible = true
-        binding.btnSignUp.isVisible = false
+        binding.btnSignUpRegister.isVisible = false
     }
 
     private fun showSuccessState() {
         binding.progressBar.isVisible = false
-        binding.btnSignUp.isVisible = true
+        binding.btnSignUpRegister.isVisible = true
     }
 
-    private fun showInputError() {
-        if (binding.etName.text.isEmpty() || binding.etSurname.text.isEmpty() || binding.etEmail.text.isEmpty() || binding.etPassword.text.isEmpty() || binding.etPasswordAgain.text.isEmpty()) Toast.makeText(
-            requireContext(),
-            "Lütfen tüm alanları doldurun",
-            Toast.LENGTH_SHORT
-        ).show()
-        else if (binding.etPassword.text.toString() != binding.etPasswordAgain.text.toString()) Toast.makeText(
-            requireContext(),
-            "Şifreler eşleşmiyor",
-            Toast.LENGTH_SHORT
-        ).show()
-        else if (binding.etPassword.text.length < 6) Toast.makeText(
-            requireContext(),
-            "Şifre en az 6 karakter olmalı",
-            Toast.LENGTH_SHORT
-        ).show()
-    }
 
     private fun showErrorState() {
         binding.progressBar.isVisible = false
-        binding.btnSignUp.isVisible = true
+        binding.btnSignUpRegister.isVisible = true
     }
 }

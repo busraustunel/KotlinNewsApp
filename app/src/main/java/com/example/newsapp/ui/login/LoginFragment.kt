@@ -114,7 +114,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         }
 
-        binding.btnGoSignUp.setOnClickListener {
+        binding.textViewRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
     }

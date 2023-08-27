@@ -60,6 +60,7 @@ dependencies {
 
     implementation("io.coil-kt:coil:2.4.0")
 
+    implementation ("com.airbnb.android:lottie:3.4.0")
 
     implementation ("androidx.core:core-ktx:1.8.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
