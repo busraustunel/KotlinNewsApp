@@ -27,23 +27,22 @@
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
-        android:id="@+id/newsDetailFragment"
-        android:name="com.example.newsapp.ui.newsDetail.NewsDetailFragment"
-        android:label="NewsDetailFragment">
-        <action
-            android:id="@+id/action_newsDetailFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
-        <argument
-            android:name="category"
-            app:argType="string" />
-    </fragment>
-    <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.newsapp.ui.categories.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category">
         <action
-            android:id="@+id/action_categoryFragment_to_newsDetailFragment"
-            app:destination="@id/newsDetailFragment" />
+            android:id="@+id/action_categoryFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.newsapp.ui.news.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news">
+        <argument
+            android:name="category"
+            app:argType="string"
+            />
     </fragment>
 </navigation>

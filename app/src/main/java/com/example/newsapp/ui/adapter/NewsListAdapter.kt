@@ -1,6 +1,8 @@
 package com.example.newsapp.ui.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +14,12 @@ class NewsListAdapter(val context:Context, val newsList:List<News>): RecyclerVie
     class NewsListViewHolder(binding: NewsListItemBinding):RecyclerView.ViewHolder(binding.root) {
 
         val ivNews = binding.ivNews
-        val tvNews = binding.tvNews
+        val tvNewsAuthor = binding.tvNewsAuthor
+        val tvContent = binding.tvNewsContent
+        val tvNewsDate = binding.tvNewsDate
+        val tvNewsTime = binding.tvNewsTime
+        val tvNewsTitle = binding.tvNewsTitle
+        val btnReadMore = binding.btnReadMore
 
     }
 
@@ -29,6 +36,18 @@ class NewsListAdapter(val context:Context, val newsList:List<News>): RecyclerVie
         val news = newsList[position]
 
         holder.ivNews.load(news.imageUrl)
-        holder.tvNews.text = news.title
+        holder.tvNewsAuthor.text = news.author
+        holder.tvContent.text = news.content
+        holder.tvNewsDate.text = news.date
+        holder.tvNewsTime.text = news.time
+        holder.tvNewsTitle.text = news.title
+        holder.btnReadMore.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(news.readMoreUrl)
+            context.startActivity(intent)
+        }
+
+
+
     }
 }

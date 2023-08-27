@@ -1,4 +1,4 @@
-package com.example.newsapp.ui.newsDetail
+package com.example.newsapp.ui.news
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,6 +15,7 @@ class NewsDetailViewModel @Inject constructor(private val newsRepository: NewsRe
 
     private val _newsState: MutableStateFlow<NewsState> = MutableStateFlow(NewsState.Idle)
     val newsState: StateFlow<NewsState> = _newsState
+
 
     fun getNews(category:String) {
         viewModelScope.launch {

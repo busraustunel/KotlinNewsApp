@@ -1,4 +1,4 @@
-package com.example.newsapp.ui.newsDetail
+package com.example.newsapp.ui.news
 
 import android.os.Bundle
 import android.view.View
@@ -12,19 +12,19 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import com.example.newsapp.R
 import com.example.newsapp.data.state.NewsState
-import com.example.newsapp.databinding.FragmentNewsDetailBinding
+import com.example.newsapp.databinding.FragmentNewsBinding
 import com.example.newsapp.ui.adapter.NewsListAdapter
 import kotlinx.coroutines.launch
 
 
-class NewsDetailFragment : Fragment(R.layout.fragment_news_detail) {
+class NewsFragment : Fragment(R.layout.fragment_news) {
 
-    lateinit var binding: FragmentNewsDetailBinding
+    lateinit var binding: FragmentNewsBinding
     private val viewModel: NewsDetailViewModel by activityViewModels()
     lateinit var adapter: NewsListAdapter
-    val args: NewsDetailFragmentArgs by navArgs()
+    val args: NewsFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding = FragmentNewsDetailBinding.bind(view)
+        binding = FragmentNewsBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
 
 
@@ -33,6 +33,8 @@ class NewsDetailFragment : Fragment(R.layout.fragment_news_detail) {
 
 
     }
+
+
 
     private fun observeNewsState() {
         lifecycleScope.launch {
