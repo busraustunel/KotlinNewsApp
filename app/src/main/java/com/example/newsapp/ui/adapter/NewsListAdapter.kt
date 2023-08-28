@@ -5,12 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.newsapp.data.api.model.News
 import com.example.newsapp.databinding.NewsListItemBinding
 
-class NewsListAdapter(val context:Context, val newsList:List<News>): RecyclerView.Adapter<NewsListAdapter.NewsListViewHolder>() {
+class NewsListAdapter(val context:Context, val newsList:List<News>, val onClick:(news:News) -> Unit): RecyclerView.Adapter<NewsListAdapter.NewsListViewHolder>() {
     class NewsListViewHolder(binding: NewsListItemBinding):RecyclerView.ViewHolder(binding.root) {
 
         val ivNews = binding.ivNews
@@ -42,9 +43,7 @@ class NewsListAdapter(val context:Context, val newsList:List<News>): RecyclerVie
         holder.tvNewsTime.text = news.time
         holder.tvNewsTitle.text = news.title
         holder.btnReadMore.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(news.readMoreUrl)
-            context.startActivity(intent)
+            onClick(news)
         }
 
 

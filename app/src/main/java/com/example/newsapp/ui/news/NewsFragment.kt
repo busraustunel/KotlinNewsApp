@@ -1,5 +1,7 @@
 package com.example.newsapp.ui.news
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -38,8 +40,6 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
 
     }
 
-
-
     private fun observeNewsState() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -53,7 +53,11 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
                         is NewsState.Success -> {
                             binding.progressBar.isVisible = false
                             binding.rvHome.isVisible = true
-                            adapter = NewsListAdapter(requireContext(), it.news)
+                            adapter = NewsListAdapter(requireContext(), it.news) {
+                                val intent = Intent(Intent.ACTION_VIEW)
+                                            intent.data = Uri.parse(it.readMoreUrl)
+                                            context?.startActivity(intent)
+                            }
                             binding.rvHome.adapter = adapter
 
                         }
