@@ -23,8 +23,6 @@ This project developed using https://github.com/cyberboysumanjay/Inshorts-News-A
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 Clone the repo
    ```sh
    git clone https://github.com/busraustunel/KotlinNewsApp.git
@@ -32,7 +30,6 @@ Clone the repo
 
 ### Requirements
 
-This is an example of how to list things you need to use the software and how to install them.
   * navigation
   ```sh
   implementation ("androidx.navigation:navigation-fragment-ktx:2.7.0")
