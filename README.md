@@ -96,11 +96,11 @@ This is an example of how to list things you need to use the software and how to
      <td>News</td>
      <td>Read More</td>
   <tr>
-    <td><img src="https://github.com/busraustunel/KotlinNewsApp/app/src/main/res" width="275" ></td>
-    <td><img src="https://github.com/GozdeAykent/RandomCalculator/assets/77548014/634fee98-65f5-403e-8b10-1083de18e2dd" width="275" ></td>
-    <td><img src="https://github.com/GozdeAykent/RandomCalculator/assets/77548014/3a529169-86a9-454e-8528-2090464d49f7" width="275"></td>
-     <td><img src="https://github.com/GozdeAykent/RandomCalculator/assets/77548014/634fee98-65f5-403e-8b10-1083de18e2dd" width="275" ></td>
-    <td><img src="https://github.com/GozdeAykent/RandomCalculator/assets/77548014/3a529169-86a9-454e-8528-2090464d49f7" width="275"></td>
+    <td><img src="app/src/main/res/drawable/one.png" width="275" ></td>
+    <td><img src="app/src/main/res/drawable/two.png" width="275" ></td>
+    <td><img src="app/src/main/res/drawable/three.png" width="275"></td>
+     <td><img src="app/src/main/res/drawable/four.png" width="275" ></td>
+    <td><img src="app/src/main/res/drawable/five.png" width="275"></td>
  </table>
 
 
