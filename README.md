@@ -1,6 +1,6 @@
 # Kotlin News App
 
-A simple app that I created with **Kotlin**.
+A simple app that I created with **Kotlin and Android**.
 
 ## Getting Started
 
@@ -33,7 +33,7 @@ Clone the repo
 ### Requirements
 
 This is an example of how to list things you need to use the software and how to install them.
-* navigation
+  * navigation
   ```sh
   implementation ("androidx.navigation:navigation-fragment-ktx:2.7.0")
   implementation ("androidx.navigation:navigation-ui-ktx:2.7.0")
