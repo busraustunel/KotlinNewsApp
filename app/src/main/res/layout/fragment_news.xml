@@ -6,16 +6,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.news.NewsFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="parent"
+
+    <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#DCD6D6"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="News"
-        />
+        android:id="@+id/toolbar"
+        android:background="@color/dark_blue"
+        android:elevation="4dp"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
 
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHome"
         android:layout_height="0dp"

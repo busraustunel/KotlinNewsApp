@@ -29,6 +29,10 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
 
 
         viewModel.getNews(args.category)
+        binding.toolbar.title = args.category.uppercase()
+        binding.toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
         observeNewsState()
 
 

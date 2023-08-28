@@ -27,7 +27,6 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentCategoryBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
-        binding.toolbar.inflateMenu(R.menu.toolbar_menu)
 
         viewModel.getCategories()
         observeCategoriesState()

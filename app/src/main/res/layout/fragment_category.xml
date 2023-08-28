@@ -7,16 +7,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.categories.CategoryFragment">
 
-    <Toolbar
-        android:id="@+id/toolbar"
-        android:title="@string/categories"
-        android:titleTextColor="@color/white"
+    <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#C8C4C4"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/dark_blue"
+        android:elevation="4dp"
+        app:title="@string/categories"
+        app:titleTextColor="@color/white"
+        app:menu="@menu/toolbar_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
