@@ -88,6 +88,20 @@ This is an example of how to list things you need to use the software and how to
 
 ## Screenshoots
 
+<table>
+  <tr>
+    <td>Login</td>
+     <td>Register</td>
+     <td>Categories</td>
+     <td>News</td>
+     <td>Read More</td>
+  <tr>
+    <td><img src="https://github.com/busraustunel/KotlinNewsApp/app/src/main/res" width="275" ></td>
+    <td><img src="https://github.com/GozdeAykent/RandomCalculator/assets/77548014/634fee98-65f5-403e-8b10-1083de18e2dd" width="275" ></td>
+    <td><img src="https://github.com/GozdeAykent/RandomCalculator/assets/77548014/3a529169-86a9-454e-8528-2090464d49f7" width="275"></td>
+     <td><img src="https://github.com/GozdeAykent/RandomCalculator/assets/77548014/634fee98-65f5-403e-8b10-1083de18e2dd" width="275" ></td>
+    <td><img src="https://github.com/GozdeAykent/RandomCalculator/assets/77548014/3a529169-86a9-454e-8528-2090464d49f7" width="275"></td>
+ </table>
 
 
 
