@@ -4,7 +4,7 @@ A simple app that I created with **Kotlin and Android**.
 
 ## Getting Started
 
-User login and registration are done through the room database. After adding a record with room database on your device, you can log in to the application. After logging into the application, it is necessary to enter data for the Categories database. You can add categories with the instructions in the Readme.md file. After the categories are added, you can click on the categories you want to reach the relevant current news. Click the Read More button.
+User login and registration are done through the room database. After adding a record with room database on your device, you can log in to the application. After logging into the application, it is necessary to enter data for the Categories database. You can add categories with the instructions in the Readme.md file. After the categories are added, you can click on the categories you want to reach the relevant current news. You can access the details of the news by clicking the read more button.
 
 ## API
 
