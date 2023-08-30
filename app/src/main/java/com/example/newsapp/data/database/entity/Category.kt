@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Category(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val name: String,
+    var name: String,
     val value:String
 
     /* DATABASE EKLEME:
