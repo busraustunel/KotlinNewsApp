@@ -18,6 +18,8 @@ This project developed using https://github.com/cyberboysumanjay/Inshorts-News-A
 - Dagger Hilt
 - Coil
 - Retrofit
+- View Binding
+- Data Binding
 - Lottie Animation
 - Material UI Design
 
