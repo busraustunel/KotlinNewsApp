@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="category"
+            type="com.example.newsapp.data.database.entity.Category" />
+        <variable
+            name="listener"
+            type="com.example.newsapp.ui.adapter.CategoriesClickListener" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -14,8 +25,7 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        >
-
+        android:onClick="@{() -> listener.onCategoriesClicked(category)}">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvCategoryName"
@@ -31,9 +41,11 @@
         android:textSize="20sp"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:text="SCIENCE"
+        android:text="@{category.name}"
         />
 
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
