@@ -1,31 +1,21 @@
 package com.example.newsapp.ui.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.newsapp.data.api.model.News
 import com.example.newsapp.databinding.NewsListItemBinding
 
-class NewsListAdapter(val context:Context, val newsList:List<News>, val onClick:(news:News) -> Unit): RecyclerView.Adapter<NewsListAdapter.NewsListViewHolder>() {
-    class NewsListViewHolder(binding: NewsListItemBinding):RecyclerView.ViewHolder(binding.root) {
-
-        val ivNews = binding.ivNews
-        val tvNewsAuthor = binding.tvNewsAuthor
-        val tvContent = binding.tvNewsContent
-        val tvNewsDate = binding.tvNewsDate
-        val tvNewsTime = binding.tvNewsTime
-        val tvNewsTitle = binding.tvNewsTitle
-        val btnReadMore = binding.btnReadMore
-
-    }
+class NewsListAdapter(val context:Context, val newsList:List<News>, val onClick:(news:News) -> Unit): RecyclerView.Adapter<NewsListAdapter.NewsListViewHolder>(), ReadMoreClickListener {
+    class NewsListViewHolder(var binding: NewsListItemBinding):RecyclerView.ViewHolder(binding.root) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder {
-        val binding = NewsListItemBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding = DataBindingUtil.inflate<NewsListItemBinding>(LayoutInflater.from(parent.context), com.example.newsapp.R.layout.news_list_item, parent, false)
         return NewsListViewHolder(binding)
     }
 
@@ -34,19 +24,19 @@ class NewsListAdapter(val context:Context, val newsList:List<News>, val onClick:
     }
 
     override fun onBindViewHolder(holder: NewsListViewHolder, position: Int) {
-        val news = newsList[position]
 
-        holder.ivNews.load(news.imageUrl)
-        holder.tvNewsAuthor.text = news.author
-        holder.tvContent.text = news.content
-        holder.tvNewsDate.text = news.date
-        holder.tvNewsTime.text = news.time
-        holder.tvNewsTitle.text = news.title
-        holder.btnReadMore.setOnClickListener {
-            onClick(news)
+        holder.binding.news = newsList[position]
+        holder.binding.readMoreListener = this
+    }
+    companion object{
+        @JvmStatic
+        @BindingAdapter("android:loadImage")
+        fun loadImage(view: ImageView, url:String?){
+            view.load(url)
         }
+    }
 
-
-
+    override fun onReadMoreClicked(news: News) {
+        onClick(news)
     }
 }
